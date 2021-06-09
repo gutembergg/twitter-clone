@@ -5,6 +5,10 @@ import { HttpClientModule } from "@angular/common/http"
 import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "./app.component"
 import { IonicModule } from "@ionic/angular"
+import { AngularFireModule } from "@angular/fire"
+import { AngularFirestoreModule } from "@angular/fire/firestore"
+import { environment } from "src/environments/environment"
+import { ReactiveFormsModule } from "@angular/forms"
 
 @NgModule({
 	declarations: [AppComponent],
@@ -12,7 +16,10 @@ import { IonicModule } from "@ionic/angular"
 		BrowserModule,
 		AppRoutingModule,
 		IonicModule.forRoot(),
-		HttpClientModule
+		HttpClientModule,
+		AngularFireModule.initializeApp(environment.firebase),
+		AngularFirestoreModule,
+		ReactiveFormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

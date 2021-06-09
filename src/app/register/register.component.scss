@@ -1,0 +1,15 @@
+.input-blok {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+ion-item {
+	--padding-bottom: 5px;
+	--padding-top: 15px;
+}
+
+ion-icon {
+	padding: 7px;
+}
