@@ -25,6 +25,18 @@ export class UserService {
 			)
 			.pipe(map((user) => Object.entries(user)))
 			.subscribe((res) => this.userSubject$.next(res[0][1]))
+		/* this._users$.forEach((twt) => {
+			console.log(
+				"twt: ",
+				twt.map((t) => this.registerTweets(t))
+			)
+		}) */
+	}
+	registerTweets(twt) {
+		this.firestore
+			.collection("tweets")
+			.add(twt)
+			.then((res) => console.log("ok: ", res.id))
 	}
 
 	registerUsers(user: User) {
@@ -39,5 +51,9 @@ export class UserService {
 		return this.firestore
 			.collection<User>("users")
 			.valueChanges({ idField: "id" })
+	}
+
+	getTweets() {
+		return this.firestore.collection("tweets").valueChanges({ idField: "id" })
 	}
 }

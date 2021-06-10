@@ -20,6 +20,7 @@
 				"html/html-extensions": [".html", ".we"] // consider .html and .we files as HTML
 			},
 			"rules": {
+				"no-useless-escape": "off",
 				"@typescript-eslint/unbound-method": "off",
 				"@typescript-eslint/no-explicit-any": "off",
 				"@typescript-eslint/explicit-module-boundary-types": "off",

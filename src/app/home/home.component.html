@@ -17,11 +17,11 @@
 </ion-header>
 
 <ion-content>
-	<ion-segment value="home" mode="md">
+	<ion-segment [(ngModel)]="segment" value="home" mode="md">
 		<ion-segment-button value="home">
 			<ion-label>Home</ion-label>
 		</ion-segment-button>
-		<ion-segment-button value="test">
+		<ion-segment-button value="content">
 			<ion-label>TimeLine</ion-label>
 		</ion-segment-button>
 	</ion-segment>
@@ -29,8 +29,15 @@
 	<ion-slides [options]="slideOptions" mode="md">
 		<ion-slide *ngFor="let user of (users | async)">
 			<ion-avatar>
-				<img [src]="user.avatar" />
+				<img [src]="user.img" />
 			</ion-avatar>
 		</ion-slide>
 	</ion-slides>
+
+	<div *ngIf="segment === 'home'">
+		<app-tweet *ngFor="let item of (tweets | async)" [tweet]="item"></app-tweet>
+	</div>
+	<div *ngIf="segment === 'content'">
+		<p>Content</p>
+	</div>
 </ion-content>

@@ -8,7 +8,7 @@ import { IonicModule } from "@ionic/angular"
 import { AngularFireModule } from "@angular/fire"
 import { AngularFirestoreModule } from "@angular/fire/firestore"
 import { environment } from "src/environments/environment"
-import { ReactiveFormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 
 @NgModule({
 	declarations: [AppComponent],
@@ -19,7 +19,8 @@ import { ReactiveFormsModule } from "@angular/forms"
 		HttpClientModule,
 		AngularFireModule.initializeApp(environment.firebase),
 		AngularFirestoreModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		FormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

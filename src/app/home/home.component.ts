@@ -12,9 +12,14 @@ import { UserService } from "../services/user/user.service"
 export class HomeComponent implements OnInit {
 	users$: any
 	users: Observable<User[]>
+	segment = "home"
+
+	tweets: any
 
 	slideOptions = {
 		slidesPerView: 4,
+		spaceBetween: 10,
+		slidesOffsetBefore: 0,
 		freeMode: true
 	}
 
@@ -26,5 +31,7 @@ export class HomeComponent implements OnInit {
 			.subscribe((res) => (this.users$ = res))
 
 		this.users = this.userservice.getFirebaseUsers()
+
+		this.tweets = this.userservice.getTweets()
 	}
 }

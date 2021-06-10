@@ -28,12 +28,13 @@ export class RegisterComponent implements OnInit {
 	async takePhoto() {
 		const avatarUrl = await this.cameraService.takePhoto()
 		this.avatar = avatarUrl
+		console.log("avatar: ", this.avatar)
 	}
 
 	onSubmit() {
 		const user = {
 			...this.form.value,
-			avatar: this.avatar
+			img: this.avatar
 		}
 		console.log("User: ", user)
 
