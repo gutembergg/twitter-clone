@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header #header>
 	<ion-toolbar>
 		<ion-buttons slot="start">
 			<ion-button>
@@ -16,16 +16,21 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content>
-	<ion-segment [(ngModel)]="segment" value="home" mode="md">
-		<ion-segment-button value="home">
-			<ion-label>Home</ion-label>
-		</ion-segment-button>
-		<ion-segment-button value="content">
-			<ion-label>TimeLine</ion-label>
-		</ion-segment-button>
-	</ion-segment>
+<ion-segment [(ngModel)]="segment" value="home" mode="md" #segmentControll>
+	<ion-segment-button value="home">
+		<ion-label>Home</ion-label>
+	</ion-segment-button>
+	<ion-segment-button value="content">
+		<ion-label>TimeLine</ion-label>
+	</ion-segment-button>
+</ion-segment>
 
+<ion-content
+	fullscreen="true"
+	[scrollEvents]="true"
+	[appHeader]="header"
+	[appStickSegment]="segmentControll"
+>
 	<ion-slides [options]="slideOptions" mode="md">
 		<ion-slide *ngFor="let user of (users | async)">
 			<ion-avatar>
