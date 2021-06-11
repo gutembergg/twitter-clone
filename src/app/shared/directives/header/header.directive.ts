@@ -19,7 +19,6 @@ export class HeaderDirective implements AfterViewInit {
 	constructor(private renderer: Renderer2, private domCtrl: DomController) {}
 
 	ngAfterViewInit() {
-		console.log("this.header: ", this.header)
 		this.header = this.header.el
 		this.children = this.header.children
 	}
@@ -31,7 +30,6 @@ export class HeaderDirective implements AfterViewInit {
 
 		if (newPosition < -this.headerHeight) {
 			newPosition = -this.headerHeight
-			console.log("position: ", newPosition)
 		}
 
 		let newOpacity = 1 - newPosition / -this.headerHeight

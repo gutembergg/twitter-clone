@@ -19,21 +19,21 @@ export class StickSegmentDirective implements AfterViewInit {
 
 	ngAfterViewInit() {
 		this.segment = this.segment.el
+		console.log("---000>ooo", this.segment)
 	}
 
-	@HostListener("IonScroll", ["$event"]) onScroll($event) {
+	@HostListener("ionScroll", ["$event"]) onScroll($event: any) {
+		const scrollTop: number = $event.detail.scrollTop
+
+		let newPosition = -scrollTop
+		console.log("---000>", newPosition)
+
+		if (newPosition < -this.headerHeight) {
+			newPosition = -this.headerHeight
+		}
+
 		this.domCtrl.write(() => {
-			const scrollTop: number = $event.detail.scrollTop
-
-			let newPosition = -scrollTop
-
-			if (newPosition < -this.headerHeight) {
-				newPosition = -this.headerHeight
-			}
-
-			this.domCtrl.write(() => {
-				this.renderer.setStyle(this.segment, "top", `${newPosition}px`)
-			})
+			this.renderer.setStyle(this.segment, "top", `${newPosition}px`)
 		})
 	}
 }
