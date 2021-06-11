@@ -8,7 +8,8 @@ import { IonicModule } from "@ionic/angular"
 import { AngularFireModule } from "@angular/fire"
 import { AngularFirestoreModule } from "@angular/fire/firestore"
 import { environment } from "src/environments/environment"
-import { FormsModule, ReactiveFormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ServiceWorkerModule } from '@angular/service-worker'
 
 @NgModule({
 	declarations: [AppComponent],
@@ -20,7 +21,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 		AngularFireModule.initializeApp(environment.firebase),
 		AngularFirestoreModule,
 		ReactiveFormsModule,
-		FormsModule
+		FormsModule,
+  ServiceWorkerModule.register('ngsw-worker.js', {
+    enabled: environment.production,
+    // Register the ServiceWorker as soon as the app is stable
+    // or after 30 seconds (whichever comes first).
+    registrationStrategy: 'registerWhenStable:30000'
+  })
 	],
 	providers: [],
 	bootstrap: [AppComponent]
