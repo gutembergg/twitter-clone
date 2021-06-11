@@ -5,7 +5,7 @@
 		"ng": "ng",
 		"start": "ng serve",
 		"build": "ng build",
-		"deploy:github": "ng deploy --base-href=./ --repo=https://gutembergg.github.io/twitter-clone/ --name=gutembergg --email=46713843+gutembergg@users.noreply.github.com --no-silent",
+		"deploy:github": "ng deploy --base-href=./ --repo=https://github.com/gutembergg/twitter-clone.git --name=gutembergg --email=46713843+gutembergg@users.noreply.github.com --no-silent",
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e"
